@@ -3,13 +3,11 @@ package com.irfan.githubuser.activity.mainactivity.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.irfan.githubuser.R
 import com.irfan.githubuser.databinding.ItemGithubUserBinding
 import com.irfan.githubuser.model.GithubUser
-import de.hdodenhof.circleimageview.CircleImageView
 
 class GithubAdapter(private val listItem: MutableList<GithubUser>, private val listener: (Any) -> Unit) : RecyclerView.Adapter<GithubAdapter.MainViewHolder>() {
 

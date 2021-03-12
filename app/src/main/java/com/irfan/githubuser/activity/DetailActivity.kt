@@ -5,7 +5,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
-import com.irfan.githubuser.R
 import com.irfan.githubuser.databinding.ActivityDetailBinding
 import com.irfan.githubuser.model.GithubUser
 import com.irfan.githubuser.util.Constant
