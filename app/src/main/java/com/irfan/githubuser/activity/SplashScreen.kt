@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.Window
 import android.view.WindowManager
-import android.widget.Toast
-import androidx.core.graphics.scaleMatrix
 import com.irfan.githubuser.R
+import com.irfan.githubuser.activity.mainactivity.MainActivity
 import com.irfan.githubuser.databinding.ActivitySplashScreenBinding
 
 class SplashScreen : AppCompatActivity() {

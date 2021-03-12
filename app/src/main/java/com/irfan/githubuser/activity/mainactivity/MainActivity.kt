@@ -1,4 +1,4 @@
-package com.irfan.githubuser.activity
+package com.irfan.githubuser.activity.mainactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
