@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.irfan.githubuser.R
+import com.irfan.githubuser.databinding.ItemGithubUserBinding
 import com.irfan.githubuser.model.GithubUser
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -22,22 +23,17 @@ class GithubAdapter(private val listItem: MutableList<GithubUser>, private val l
     override fun getItemCount() = listItem.size
 
     inner class MainViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+        private val binding = ItemGithubUserBinding.bind(view)
         fun bind(listItem: GithubUser, listener: (Any) -> Unit) {
-            val tvName : TextView = itemView.findViewById(R.id.tv_name)
-            val tvUsername : TextView = itemView.findViewById(R.id.tv_username)
-            val tvFollowers : TextView = itemView.findViewById(R.id.tv_followers)
-            val tvFollowing : TextView = itemView.findViewById(R.id.tv_following)
-            val imgAvatar : CircleImageView = itemView.findViewById(R.id.circleImageView)
-
-            tvName.text = listItem.name
-            tvUsername.text = String.format("@${listItem.username}")
-            tvFollowers.text = listItem.followers
-            tvFollowing.text = listItem.following
+            binding.tvName.text = listItem.name
+            binding.tvUsername.text = String.format("@${listItem.username}")
+            binding.tvFollowers.text = listItem.followers
+            binding.tvFollowing.text = listItem.following
             Glide.with(view.context)
                 .load(listItem.avatar)
                 .placeholder(android.R.drawable.progress_indeterminate_horizontal)
                 .error(android.R.drawable.stat_notify_error)
-                .into(imgAvatar)
+                .into(binding.circleImageView)
 
             itemView.setOnClickListener{listener(listItem)}
         }
