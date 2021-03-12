@@ -21,4 +21,5 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
+    <style name="Theme.MainActivity" parent="Theme.MaterialComponents.Light.DarkActionBar"/>
 </resources>

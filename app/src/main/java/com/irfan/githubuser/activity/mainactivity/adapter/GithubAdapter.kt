@@ -10,7 +10,7 @@ import com.irfan.githubuser.R
 import com.irfan.githubuser.model.GithubUser
 import de.hdodenhof.circleimageview.CircleImageView
 
-class ListAdapter(private val listItem: MutableList<GithubUser>, private val listener: (Any) -> Unit) : RecyclerView.Adapter<ListAdapter.MainViewHolder>() {
+class GithubAdapter(private val listItem: MutableList<GithubUser>, private val listener: (Any) -> Unit) : RecyclerView.Adapter<GithubAdapter.MainViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder =
         MainViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_github_user, parent, false))
@@ -30,7 +30,7 @@ class ListAdapter(private val listItem: MutableList<GithubUser>, private val lis
             val imgAvatar : CircleImageView = itemView.findViewById(R.id.circleImageView)
 
             tvName.text = listItem.name
-            tvUsername.text = listItem.username
+            tvUsername.text = String.format("@${listItem.username}")
             tvFollowers.text = listItem.followers
             tvFollowing.text = listItem.following
             Glide.with(view.context)
@@ -38,6 +38,8 @@ class ListAdapter(private val listItem: MutableList<GithubUser>, private val lis
                 .placeholder(android.R.drawable.progress_indeterminate_horizontal)
                 .error(android.R.drawable.stat_notify_error)
                 .into(imgAvatar)
+
+            itemView.setOnClickListener{listener(listItem)}
         }
     }
 }

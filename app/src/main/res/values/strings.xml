@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Github User</string>
+    <string name="followers">followers</string>
+    <string name="bullet">•</string>
+    <string name="following">following</string>
 
     <string-array name="username">
         <item>JakeWharton</item>

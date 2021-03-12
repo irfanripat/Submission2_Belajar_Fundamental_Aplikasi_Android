@@ -17,4 +17,6 @@
     </style>
 
     <style name="Theme.SplashScreen" parent="Theme.GithubUser"/>
+
+    <style name="Theme.MainActivity" parent="Theme.MaterialComponents.Light.DarkActionBar"/>
 </resources>
