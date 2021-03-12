@@ -34,10 +34,10 @@ class SplashScreen : AppCompatActivity() {
             duration = 350
         }
 
-
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
-        }, 3000)
+        }, 2500)
     }
 }
