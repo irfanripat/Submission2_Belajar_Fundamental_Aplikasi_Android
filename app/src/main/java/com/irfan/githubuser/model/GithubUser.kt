@@ -18,14 +18,14 @@ data class GithubUser(
 ) :Parcelable
 
 class GithubData(context: Context) {
-    val listUsername =  context.resources.getStringArray(R.array.username)
-    val listName = context.resources.getStringArray(R.array.name)
-    val listLocation = context.resources.getStringArray(R.array.location)
-    val listRepository = context.resources.getStringArray(R.array.repository)
-    val listCompany = context.resources.getStringArray(R.array.company)
-    val listFollowers = context.resources.getStringArray(R.array.followers)
-    val listFollowing = context.resources.getStringArray(R.array.following)
-    val listAvatar = context.resources.obtainTypedArray(R.array.avatar)
+    private val listUsername =  context.resources.getStringArray(R.array.username)
+    private val listName = context.resources.getStringArray(R.array.name)
+    private val listLocation = context.resources.getStringArray(R.array.location)
+    private val listRepository = context.resources.getStringArray(R.array.repository)
+    private val listCompany = context.resources.getStringArray(R.array.company)
+    private val listFollowers = context.resources.getStringArray(R.array.followers)
+    private val listFollowing = context.resources.getStringArray(R.array.following)
+    private val listAvatar = context.resources.obtainTypedArray(R.array.avatar)
 
     val listData: ArrayList<GithubUser>
         get() {

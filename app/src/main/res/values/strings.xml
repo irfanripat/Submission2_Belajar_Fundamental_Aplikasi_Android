@@ -7,6 +7,10 @@
     <string name="following_caps">Following</string>
     <string name="follower_caps">Follower</string>
     <string name="visit_on_github">Visit on GitHub</string>
+    <string name="app_icon">App Icon</string>
+    <string name="background">Background</string>
+    <string name="avatar">Avatar</string>
+    <string name="icon_followers">Icon Followers</string>
 
     <string-array name="username">
         <item>JakeWharton</item>

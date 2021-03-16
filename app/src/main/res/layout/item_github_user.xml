@@ -18,6 +18,7 @@
             android:id="@+id/circleImageView"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:contentDescription="@string/avatar"
             android:layout_margin="8dp"
             app:civ_border_color="#ACACAC"
             app:civ_border_width="4dp"
@@ -55,6 +56,7 @@
             android:id="@+id/imageView"
             android:layout_width="18dp"
             android:layout_height="18dp"
+            android:contentDescription="@string/icon_followers"
             android:src="@drawable/ic_followers"
             app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
             app:layout_constraintStart_toStartOf="@+id/tv_username" />
