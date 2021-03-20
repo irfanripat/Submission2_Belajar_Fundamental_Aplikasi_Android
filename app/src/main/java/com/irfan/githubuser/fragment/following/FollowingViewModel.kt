@@ -32,7 +32,7 @@ class FollowingViewModel: ViewModel() {
         val listItem = ArrayList<DetailUser>()
         uiScope.launch {
             try {
-                val response = api.getListFollower("token${Constant.TOKEN}", username)
+                val response = api.getListFollower("token ${Constant.TOKEN}", username)
                 if (response.isSuccessful) {
                     for (user in response.body()!!) {
                         listItem.add(user)

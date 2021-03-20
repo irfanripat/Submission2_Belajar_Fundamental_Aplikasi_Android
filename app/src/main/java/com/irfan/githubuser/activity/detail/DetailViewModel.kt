@@ -31,7 +31,7 @@ class DetailViewModel : ViewModel() {
         val api = RetrofitClient.getRetrofitInstance().create(ApiInterface::class.java)
         uiScope.launch {
             try {
-                val response = api.getDetailUser("token${Constant.TOKEN}", username)
+                val response = api.getDetailUser("token ${Constant.TOKEN}", username)
                 if (response.isSuccessful) {
                     val data = response.body()
                     Log.d("user", data.toString())

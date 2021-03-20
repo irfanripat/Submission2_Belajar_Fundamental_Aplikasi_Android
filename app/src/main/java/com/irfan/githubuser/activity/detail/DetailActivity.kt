@@ -15,6 +15,8 @@ import com.google.android.material.tabs.TabLayout
 import com.irfan.githubuser.R
 import com.irfan.githubuser.activity.detail.adapter.FragmentAdapter
 import com.irfan.githubuser.databinding.ActivityDetailBinding
+import com.irfan.githubuser.util.Commons.hide
+import com.irfan.githubuser.util.Commons.show
 
 class DetailActivity : AppCompatActivity() {
 
@@ -70,8 +72,9 @@ class DetailActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab?) {}
 
         })
-
+        showShimmer()
         detailViewModel.getDetailUser(username!!).observe(this, {user->
+            hideShimmer()
             if (user!=null) {
                 binding.apply {
                     tvName.text = user.name
@@ -108,5 +111,45 @@ class DetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun showShimmer() {
+        binding.shimmerLayout.apply {
+            startShimmer()
+            show()
+        }
+
+        binding.apply {
+            tvName.hide()
+            tvCompany.hide()
+            tvLocation.hide()
+            tvFollowers.hide()
+            tvFollowing.hide()
+            tvRepository.hide()
+            labelFollowers.hide()
+            labelFollowing.hide()
+            labelRepository.hide()
+            btnVisit.hide()
+        }
+    }
+
+    private fun hideShimmer() {
+        binding.shimmerLayout.apply {
+            hide()
+            stopShimmer()
+        }
+
+        binding.apply {
+            tvName.show()
+            tvCompany.show()
+            tvLocation.show()
+            tvFollowers.show()
+            tvFollowing.show()
+            tvRepository.show()
+            labelFollowers.show()
+            labelFollowing.show()
+            labelRepository.show()
+            btnVisit.show()
+        }
     }
 }

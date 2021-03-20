@@ -188,6 +188,16 @@
                     app:layout_constraintStart_toEndOf="@+id/label_following"
                     app:layout_constraintTop_toTopOf="@id/label_following" />
 
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include
+                        layout="@layout/layout_detail_shimmer"/>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

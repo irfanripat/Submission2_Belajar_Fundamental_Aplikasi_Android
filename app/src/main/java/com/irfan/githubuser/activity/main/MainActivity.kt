@@ -40,6 +40,26 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        mainViewModel.isSuccess.observe(this, {isSucces->
+            when(isSucces) {
+                0 -> {
+                    binding.shimmerLayout.hide()
+                    binding.layoutError.root.show()
+                }
+                1 -> {
+                    binding.layoutError.root.hide()
+                    getData()
+                }
+            }
+        })
+
+        binding.layoutError.btnRefresh.setOnClickListener {
+            showShimmer()
+            mainViewModel.setSearchQuery(binding.inputUsername.text.toString())
+        }
+    }
+
+    private fun getData() {
         mainViewModel.getSearchResult().observe(this, {
             val githubAdapter = GithubAdapter(it) { user ->
                 user as DetailUser
@@ -59,9 +79,11 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+
     private fun showShimmer() {
         binding.apply {
             layoutNoData.root.hide()
+            layoutError.root.hide()
             recyclerView.hide()
             shimmerLayout.apply {
                 show()
