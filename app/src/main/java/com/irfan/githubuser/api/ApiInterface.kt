@@ -2,7 +2,6 @@ package com.irfan.githubuser.api
 
 import com.irfan.githubuser.model.DetailUser
 import com.irfan.githubuser.model.SearchResponse
-import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -17,9 +16,9 @@ interface ApiInterface {
 
     @Headers("Accept:application/json")
     @GET("users/{username}/followers")
-    suspend fun getListFollower(@Header("Authorization")authorization: String, @Path("username") username: String): Response<ResponseBody>
+    suspend fun getListFollower(@Header("Authorization")authorization: String, @Path("username") username: String): Response<ArrayList<DetailUser>>
 
     @Headers("Accept:application/json")
     @GET("users/{username}/following")
-    suspend fun getListFollowing(@Header("Authorization")authorization: String, @Path("username") username: String): Response<ResponseBody>
+    suspend fun getListFollowing(@Header("Authorization")authorization: String, @Path("username") username: String): Response<ArrayList<DetailUser>>
 }

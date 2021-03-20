@@ -3,14 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EDEEF1"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.FollowingFragment">
+    tools:context=".fragment.following.FollowingFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_github_user" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_github_user">
+
+        <include
+            layout="@layout/shimmer_layout"/>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <include
+        android:id="@+id/layout_no_data"
+        layout="@layout/layout_no_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
-        android:textSize="33sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -3,8 +3,8 @@ package com.irfan.githubuser.activity.detail.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.irfan.githubuser.fragment.FollowersFragment
-import com.irfan.githubuser.fragment.FollowingFragment
+import com.irfan.githubuser.fragment.followers.FollowersFragment
+import com.irfan.githubuser.fragment.following.FollowingFragment
 
 @Suppress("DEPRECATION")
 
