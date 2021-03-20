@@ -7,7 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
 import com.irfan.githubuser.R
-import com.irfan.githubuser.activity.mainactivity.MainActivity
+import com.irfan.githubuser.activity.main.MainActivity
 import com.irfan.githubuser.databinding.ActivitySplashScreenBinding
 
 class SplashScreen : AppCompatActivity() {

@@ -27,4 +27,21 @@
         <!-- Customize color of navigation drawer icon and back arrow -->
         <item name="colorControlNormal">@color/font_black</item>
     </style>
+
+    <style name="TextInputLayoutTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="boxStrokeColor">@color/font_black</item>
+        <item name="android:textColorHint">@color/font_black</item>
+        <item name="boxBackgroundColor">#EDEEF1</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+        <item name="boxCornerRadiusTopEnd">6dp</item>
+    </style>
+
+    <style name="TextInputEditTextTheme">
+    <item name="android:maxLines">1</item>
+    <item name="android:textColor">@color/font_black</item>
+    <item name="android:textSize">14sp</item>
+    <item name="android:drawablePadding">15dp</item>
+    </style>
 </resources>
