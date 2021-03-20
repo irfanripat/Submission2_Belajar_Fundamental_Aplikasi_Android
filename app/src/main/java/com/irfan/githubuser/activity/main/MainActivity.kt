@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MainViewModel::class.java)
 
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
         binding.inputUsername.setOnEditorActionListener { _, p1, _ ->
             if (p1 == EditorInfo.IME_ACTION_DONE) {
                 showShimmer()
@@ -44,7 +46,6 @@ class MainActivity : AppCompatActivity() {
                 githubAdapter.notifyDataSetChanged()
             }
 
-            binding.recyclerView.layoutManager = LinearLayoutManager(this)
             binding.recyclerView.adapter = githubAdapter
         })
     }
