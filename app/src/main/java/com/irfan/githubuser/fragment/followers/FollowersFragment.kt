@@ -31,8 +31,25 @@ class FollowersFragment : Fragment() {
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        getData(username!!)
+
+        followersViewModel.isSuccess.observe(viewLifecycleOwner, {isSuccess ->
+            when(isSuccess) {
+                0 -> {
+                    binding.layoutError.root.show()
+                    binding.shimmerLayout.hide()
+                }
+            }
+        })
+
+        binding.layoutError.btnRefresh.setOnClickListener {
+            getData(username)
+        }
+    }
+
+    private fun getData(username: String) {
         showShimmer()
-        followersViewModel.getListFollower(username!!).observe(viewLifecycleOwner,  {
+        followersViewModel.getListFollower(username).observe(viewLifecycleOwner,  {
             val githubAdapter = GithubAdapter(it){}
 
             hideShimmer()
@@ -48,6 +65,7 @@ class FollowersFragment : Fragment() {
     }
 
     private fun showShimmer() {
+        binding.layoutError.root.hide()
         binding.layoutNoData.root.hide()
         binding.shimmerLayout.apply {
             startShimmer()

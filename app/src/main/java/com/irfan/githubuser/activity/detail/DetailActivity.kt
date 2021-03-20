@@ -32,6 +32,7 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
+        binding.layoutError.textError.setTextColor(Color.WHITE)
         setContentView(binding.root)
 
         detailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DetailViewModel::class.java)
@@ -66,14 +67,30 @@ class DetailActivity : AppCompatActivity() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 viewPager.currentItem = tab!!.position
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
-
             override fun onTabReselected(tab: TabLayout.Tab?) {}
-
         })
+
+        getData(username!!)
+
+        detailViewModel.isSuccess.observe(this, {isSuccess->
+            when(isSuccess) {
+                0 -> {
+                    binding.layoutError.root.show()
+                    binding.shimmerLayout.hide()
+                }
+            }
+        })
+
+        binding.layoutError.btnRefresh.setOnClickListener {
+            getData(username)
+        }
+
+    }
+
+    private fun getData(username: String) {
         showShimmer()
-        detailViewModel.getDetailUser(username!!).observe(this, {user->
+        detailViewModel.getDetailUser(username).observe(this, {user->
             hideShimmer()
             if (user!=null) {
                 binding.apply {
@@ -85,8 +102,8 @@ class DetailActivity : AppCompatActivity() {
                     tvRepository.text = user.public_repos.toString()
                 }
                 Glide.with(this)
-                        .load(user.avatar_url)
-                        .into(binding.imgAvatar)
+                    .load(user.avatar_url)
+                    .into(binding.imgAvatar)
 
                 binding.btnVisit.setOnClickListener {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(user.html_url)))
@@ -114,6 +131,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun showShimmer() {
+        binding.layoutError.root.hide()
         binding.shimmerLayout.apply {
             startShimmer()
             show()

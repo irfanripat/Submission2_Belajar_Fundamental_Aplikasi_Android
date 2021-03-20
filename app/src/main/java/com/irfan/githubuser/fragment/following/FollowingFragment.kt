@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.irfan.githubuser.activity.detail.DetailActivity
 import com.irfan.githubuser.activity.main.adapter.GithubAdapter
 import com.irfan.githubuser.databinding.FragmentFollowingBinding
-import com.irfan.githubuser.fragment.followers.FollowersViewModel
 import com.irfan.githubuser.util.Commons.hide
 import com.irfan.githubuser.util.Commons.show
 
@@ -32,8 +31,25 @@ class FollowingFragment : Fragment() {
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        getData(username!!)
+
+        followingViewModel.isSuccess.observe(viewLifecycleOwner, {isSuccess->
+            when(isSuccess) {
+                0 -> {
+                    binding.layoutError.root.show()
+                    binding.shimmerLayout.hide()
+                }
+            }
+        })
+
+        binding.layoutError.btnRefresh.setOnClickListener {
+            getData(username)
+        }
+    }
+
+    private fun getData(username: String) {
         showShimmer()
-        followingViewModel.getListFollowing(username!!).observe(viewLifecycleOwner, {
+        followingViewModel.getListFollowing(username).observe(viewLifecycleOwner, {
             val githubAdapter = GithubAdapter(it){}
 
             hideShimmer()
@@ -49,6 +65,7 @@ class FollowingFragment : Fragment() {
     }
 
     private fun showShimmer() {
+        binding.layoutError.root.hide()
         binding.layoutNoData.root.hide()
         binding.shimmerLayout.apply {
             startShimmer()
