@@ -1,10 +1,12 @@
 package com.irfan.githubuser.model
 
+import kotlinx.android.parcel.Parcelize
+
 data class DetailUser(
     val avatar_url: String?,
     val bio: String?,
     val blog: String?,
-    val company: Any?,
+    val company: String?,
     val created_at: String?,
     val email: Any?,
     val events_url: String?,

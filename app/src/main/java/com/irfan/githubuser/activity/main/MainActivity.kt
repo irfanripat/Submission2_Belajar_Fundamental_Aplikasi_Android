@@ -1,14 +1,22 @@
 package com.irfan.githubuser.activity.main
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
+import android.view.Menu
+import android.view.MenuItem
 import android.view.inputmethod.EditorInfo
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.irfan.githubuser.R
+import com.irfan.githubuser.activity.detail.DetailActivity
 import com.irfan.githubuser.activity.main.adapter.GithubAdapter
 import com.irfan.githubuser.databinding.ActivityMainBinding
+import com.irfan.githubuser.model.DetailUser
 import com.irfan.githubuser.util.Commons.hide
 import com.irfan.githubuser.util.Commons.show
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,8 +41,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainViewModel.getSearchResult().observe(this, {
-            val githubAdapter = GithubAdapter(it) {
-
+            val githubAdapter = GithubAdapter(it) { user ->
+                user as DetailUser
+                showDetailUser(user.login!!)
             }
 
             hideShimmer()
@@ -71,5 +80,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showDetailUser(username: String) {
+        val intent = Intent(this@MainActivity, DetailActivity::class.java).apply {
+            putExtra(DetailActivity.EXTRA_GITHUB_USER, username)
+        }
+        startActivity(intent)
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.language_setting -> {
+                val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.GithubUser" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/font_black</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -25,7 +25,7 @@
 
     <style name="Theme.DetailActivity" parent="Theme.GithubUser">
         <!-- Customize color of navigation drawer icon and back arrow -->
-        <item name="colorControlNormal">@color/font_black</item>
+        <item name="colorControlNormal">#fff</item>
     </style>
 
     <style name="TextInputLayoutTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">

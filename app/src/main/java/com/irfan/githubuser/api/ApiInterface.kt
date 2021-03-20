@@ -1,5 +1,6 @@
 package com.irfan.githubuser.api
 
+import com.irfan.githubuser.model.DetailUser
 import com.irfan.githubuser.model.SearchResponse
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -12,7 +13,7 @@ interface ApiInterface {
 
     @Headers("Accept:application/json")
     @GET("users/{username}")
-    suspend fun getDetailUser(@Header("Authorization")authorization: String, @Path("username") username: String): Response<ResponseBody>
+    suspend fun getDetailUser(@Header("Authorization")authorization: String, @Path("username") username: String): Response<DetailUser>
 
     @Headers("Accept:application/json")
     @GET("users/{username}/followers")
