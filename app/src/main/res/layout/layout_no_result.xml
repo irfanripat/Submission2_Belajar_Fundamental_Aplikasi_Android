@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:ignore="UseCompoundDrawables">
 
     <ImageView
         android:id="@+id/no_data"
+        android:contentDescription="@string/no_result"
         android:layout_gravity="center"
         android:layout_width="60dp"
         android:layout_height="90dp"
@@ -17,6 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/poppins_semibold"
-        android:text="No Result"/>
+        android:text="@string/no_result"/>
 
 </LinearLayout>

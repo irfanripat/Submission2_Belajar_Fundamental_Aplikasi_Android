@@ -53,8 +53,8 @@ class DetailActivity : AppCompatActivity() {
         viewPager = binding.content.viewPager
 
         tabLayout.apply {
-            addTab(this.newTab().setText("Followers"))
-            addTab(this.newTab().setText("Following"))
+            addTab(this.newTab().setText(resources.getString(R.string.followers)))
+            addTab(this.newTab().setText(resources.getString(R.string.following)))
             tabGravity = TabLayout.GRAVITY_FILL
         }
 

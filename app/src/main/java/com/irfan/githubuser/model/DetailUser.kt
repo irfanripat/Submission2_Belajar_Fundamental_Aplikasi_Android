@@ -1,6 +1,5 @@
 package com.irfan.githubuser.model
 
-import kotlinx.android.parcel.Parcelize
 
 data class DetailUser(
     val avatar_url: String?,

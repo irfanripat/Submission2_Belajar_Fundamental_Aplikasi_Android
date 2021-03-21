@@ -28,7 +28,7 @@
         <item name="colorControlNormal">#fff</item>
     </style>
 
-    <style name="TextInputLayoutTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="TextInputLayoutTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="android:layout_marginTop">6dp</item>
         <item name="boxStrokeColor">@color/font_black</item>
         <item name="android:textColorHint">@color/font_black</item>
