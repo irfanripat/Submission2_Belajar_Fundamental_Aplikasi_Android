@@ -17,6 +17,4 @@
     <string name="refresh">Refresh</string>
     <string name="error_get_data">Error Get Data</string>
     <string name="no_result">No Result</string>
-    <string name="error_msg">Please type something</string>
-    <string name="language">Language</string>
 </resources>
