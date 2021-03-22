@@ -6,5 +6,5 @@
         android:id="@+id/language_setting"
         android:icon="@drawable/ic_language"
         app:showAsAction="always"
-        android:title="Language" />
+        android:title="@string/language" />
 </menu>

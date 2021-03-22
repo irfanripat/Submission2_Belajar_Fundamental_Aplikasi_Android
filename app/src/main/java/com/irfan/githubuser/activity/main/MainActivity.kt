@@ -1,17 +1,12 @@
 package com.irfan.githubuser.activity.main
 
-import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
-import android.content.res.Configuration
 import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.irfan.githubuser.R
@@ -21,6 +16,7 @@ import com.irfan.githubuser.databinding.ActivityMainBinding
 import com.irfan.githubuser.model.DetailUser
 import com.irfan.githubuser.util.Commons.hide
 import com.irfan.githubuser.util.Commons.show
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,13 +30,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MainViewModel::class.java)
-
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
         binding.inputUsername.setOnEditorActionListener { _, p1, _ ->
             if (p1 == EditorInfo.IME_ACTION_DONE) {
-                showShimmer()
-                mainViewModel.setSearchQuery(binding.inputUsername.text.toString())
+                if (binding.inputUsername.text.isNullOrEmpty()) {
+                    binding.inputUsername.error = resources.getString(R.string.error_msg)
+                } else {
+                    showShimmer()
+                    mainViewModel.setSearchQuery(binding.inputUsername.text.toString())
+                }
             }
             true
         }
@@ -49,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             when(isSucces) {
                 0 -> {
                     binding.shimmerLayout.hide()
+                    binding.layoutNoData.root.hide()
                     binding.layoutError.root.show()
                 }
                 1 -> {
@@ -66,12 +66,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun getData() {
         mainViewModel.getSearchResult().observe(this, {
+            hideShimmer()
+
             val githubAdapter = GithubAdapter(it) { user ->
                 user as DetailUser
                 showDetailUser(user.login!!)
             }
-
-            hideShimmer()
 
             if (it.isNullOrEmpty()) {
                 binding.layoutNoData.root.show()
@@ -131,6 +131,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        //Menangani view yang tidak menyesuaikan dengan LOCALE pada saat runtime
         binding.inputUsername.hint = resources.getString(R.string.search)
     }
+
 }

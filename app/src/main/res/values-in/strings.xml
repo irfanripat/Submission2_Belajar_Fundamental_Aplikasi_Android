@@ -18,4 +18,6 @@
     <string name="refresh">Segarkan</string>
     <string name="error_get_data">Gagal Mendapatkan Data</string>
     <string name="no_result">Tidak Ada Hasil</string>
+    <string name="error_msg">Silahkan ketik sesuatu</string>
+    <string name="language">Bahasa</string>
 </resources>
