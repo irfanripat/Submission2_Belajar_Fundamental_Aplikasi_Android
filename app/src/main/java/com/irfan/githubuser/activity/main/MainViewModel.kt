@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.irfan.githubuser.api.ApiInterface
 import com.irfan.githubuser.api.RetrofitClient
 import com.irfan.githubuser.model.DetailUser
-import com.irfan.githubuser.util.Constant
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -41,7 +40,7 @@ class MainViewModel : ViewModel() {
         val listItem = ArrayList<DetailUser>()
         uiScope.launch {
             try {
-                val response = api.searchUser("token ${Constant.TOKEN}", query)
+                val response = api.searchUser(username = query)
                 if (response.isSuccessful) {
                     _isSuccess.value = 1
                     for (user in response.body()?.items!!) {

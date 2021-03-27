@@ -10,4 +10,8 @@
 
     <color name="font_black">#444444</color>
     <color name="font_gray">#747474</color>
+
+    <color name="black_333">#333333</color>
+    <color name="circular_image_border_color">#ACACAC</color>
+    <color name="shimmer_view_color">#aa444444</color>
 </resources>

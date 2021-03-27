@@ -31,7 +31,7 @@ class FollowersFragment : Fragment() {
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        getData(username!!)
+        getData(username?:"")
 
         followersViewModel.isSuccess.observe(viewLifecycleOwner, {isSuccess ->
             when(isSuccess) {
@@ -44,7 +44,7 @@ class FollowersFragment : Fragment() {
         })
 
         binding.layoutError.btnRefresh.setOnClickListener {
-            getData(username)
+            getData(username?:"")
         }
     }
 

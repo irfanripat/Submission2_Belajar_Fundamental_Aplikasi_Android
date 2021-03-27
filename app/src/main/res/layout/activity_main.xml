@@ -20,7 +20,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_username"
                 style="@style/TextInputEditTextTheme"
-                android:textColor="#444"
+                android:textColor="@color/font_black"
                 android:layout_width="match_parent"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"

@@ -6,9 +6,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.irfan.githubuser.fragment.followers.FollowersFragment
 import com.irfan.githubuser.fragment.following.FollowingFragment
 
-@Suppress("DEPRECATION")
-
-internal class FragmentAdapter(fm: FragmentManager, private var totalTabs: Int) : FragmentPagerAdapter(fm) {
+internal class FragmentAdapter(fm: FragmentManager, private var totalTabs: Int) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> FollowersFragment()
@@ -17,7 +15,5 @@ internal class FragmentAdapter(fm: FragmentManager, private var totalTabs: Int) 
         }
     }
 
-    override fun getCount(): Int {
-        return totalTabs
-    }
+    override fun getCount(): Int = totalTabs
 }

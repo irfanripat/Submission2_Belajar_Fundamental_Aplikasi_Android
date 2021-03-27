@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.irfan.githubuser.api.ApiInterface
 import com.irfan.githubuser.api.RetrofitClient
 import com.irfan.githubuser.model.DetailUser
-import com.irfan.githubuser.util.Constant
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -40,7 +39,7 @@ class DetailViewModel : ViewModel() {
         val api = RetrofitClient.getRetrofitInstance().create(ApiInterface::class.java)
         uiScope.launch {
             try {
-                val response = api.getDetailUser("token ${Constant.TOKEN}", username)
+                val response = api.getDetailUser(username = username)
                 if (response.isSuccessful) {
                     _isSuccess.value = 1
                     val data = response.body()
