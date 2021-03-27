@@ -37,7 +37,6 @@ class FollowingFragment : Fragment() {
             when(isSuccess) {
                 0 -> {
                     binding.layoutError.root.show()
-                    binding.layoutNoData.root.hide()
                     binding.shimmerLayout.hide()
                 }
             }
