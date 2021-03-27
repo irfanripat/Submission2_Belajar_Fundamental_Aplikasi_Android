@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="130dp"
-            android:background="#aa444444"
+            android:background="@color/shimmer_view_color"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:textSize="22sp"
@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/tv_location"
-            android:background="#aa444444"
+            android:background="@color/shimmer_view_color"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -45,7 +45,7 @@
 
         <TextView
             android:id="@+id/tv_company"
-            android:background="#aa444444"
+            android:background="@color/shimmer_view_color"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -116,7 +116,7 @@
             android:id="@+id/label_followers"
             android:layout_width="109dp"
             android:layout_height="22dp"
-           android:background="#aa444444"
+           android:background="@color/shimmer_view_color"
             app:layout_constraintEnd_toStartOf="@+id/label_following"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
             android:layout_width="109dp"
             android:layout_height="22dp"
             android:layout_marginBottom="8dp"
-            android:background="#aa444444"
+            android:background="@color/shimmer_view_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/label_repository"
             app:layout_constraintHorizontal_bias="0.0"
@@ -138,7 +138,7 @@
             android:id="@+id/label_repository"
             android:layout_width="109dp"
             android:layout_height="22dp"
-            android:background="#aa444444"
+            android:background="@color/shimmer_view_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/label_following"
